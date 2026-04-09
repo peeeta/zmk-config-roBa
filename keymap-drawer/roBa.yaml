@@ -8,7 +8,7 @@ layers:
   - T
   - Y
   - U
-  - {t: I, h: ARROW}
+  - I
   - O
   - P
   - A
@@ -38,10 +38,10 @@ layers:
   - LCTRL
   - LEFT WIN
   - TAB
-  - {t: '&to_layer_0 LEFT_ALT', h: SCROLL}
+  - LEFT ALT
   - {t: '&to_layer_0 SPACE', h: Num}
   - {t: '&to_layer_0 SPACE', h: nums_shift}
-  - {t: '&to_layer_0 C_MENU', h: ARROW}
+  - {t: '&to_layer_0 C_MENU', h: Alt_func}
   - {t: '&to_layer_0 ENTER', h: arrow}
   - RIGHT SHIFT
   nums_shift:
@@ -184,9 +184,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mkp MB3'
+  - '&mkp MB1'
+  - '&mkp MB2'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -197,8 +197,8 @@ layers:
   - '&mkp MB4'
   - '&mkp MB1'
   - '&mkp MB2'
+  - '&mkp MB1'
   - '&mkp MB3'
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -258,7 +258,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -308,7 +308,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - BT CLR ALL
-  Alt:
+  Alt_func:
   - {t: ▽, type: trans}
   - Alt+7
   - Alt+8
@@ -318,19 +318,19 @@ layers:
   - F2
   - F3
   - F4
-  - F5
+  - PRINTSCREEN
   - {t: ▽, type: trans}
   - Alt+4
   - Alt+5
   - Alt+6
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - DELETE
+  - F5
   - F6
   - F7
   - F8
-  - F9
-  - F10
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Alt+1
   - Alt+2
@@ -338,62 +338,18 @@ layers:
   - {t: ▽, type: trans}
   - ESCAPE
   - {t: ▽, type: trans}
+  - F9
+  - F10
   - F11
   - F12
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - Alt+0
+  - LEFT ALT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  menu:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - PRINTSCREEN
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - DEL
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - Gui+L
   ARROW:
@@ -404,7 +360,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - HOME
