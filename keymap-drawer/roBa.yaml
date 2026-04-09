@@ -184,9 +184,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mkp MB3'
+  - '&mkp MB1'
+  - '&mkp MB2'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -197,8 +197,8 @@ layers:
   - '&mkp MB4'
   - '&mkp MB1'
   - '&mkp MB2'
+  - '&mkp MB1'
   - '&mkp MB3'
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
