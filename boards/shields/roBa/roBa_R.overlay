@@ -19,6 +19,9 @@
         status = "okay";
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        x-invert;
+        y-invert;
+        input-processors = <&zip_xy_scaler 4 3>;
     };
 };
 
