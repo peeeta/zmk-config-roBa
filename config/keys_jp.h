@@ -3,8 +3,10 @@
 // Japanese keyboard layout (JP106) keycode aliases for ZMK
 // Maps ZMK keycodes to characters that appear on JP Windows layout
 
-#define JP_QUOTE      AMPERSAND         // '
-#define JP_EQUAL      UNDERSCORE        // =  (LS(MINUS) → JP Shift+- = =)
+#define JP_QUOTE        AMPERSAND         // '  (LS(N7) → JP Shift+7 = ')
+#define JP_DOUBLE_QUOTE AT_SIGN           // "  (LS(N2) → JP Shift+2 = ")
+#define JP_AMPERSAND    CARET             // &  (LS(N6) → JP Shift+6 = &)
+#define JP_EQUAL        UNDERSCORE        // =  (LS(MINUS) → JP Shift+- = =)
 #define JP_CARET      EQUAL             // ^
 #define JP_YEN        INT3              // ¥  (HID 0x89)
 #define JP_PLUS       COLON             // +  (LS(SEMICOLON) → JP Shift+; = +)
