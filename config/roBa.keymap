@@ -126,10 +126,10 @@
 
         Alt {
             bindings = <
-&trans      &kp LA(N7)  &kp LA(N8)          &kp LA(N9)    &trans                          &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&trans      &kp LA(N4)  &kp LA(N5)          &kp LA(N6)    &trans  &trans          &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&kp LA(N0)  &kp LA(N1)  &kp LA(N2)          &kp LA(N3)    &trans  &kp ESCAPE      &trans  &kp F11  &kp F12  &trans  &trans  &trans
-&trans      &trans      &kp LA(LEFT_SHIFT)  &kp LEFT_ALT  &trans  &trans          &trans  &trans                            &trans
+&trans  &kp LA(N7)  &kp LA(N8)   &kp LA(N9)    &trans                              &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
+&trans  &kp LA(N4)  &kp LA(N5)   &kp LA(N6)    &trans      &trans          &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
+&trans  &kp LA(N1)  &kp LA(N2)   &kp LA(N3)    &kp LA(N0)  &kp ESCAPE      &trans  &kp F11  &kp F12  &trans  &trans  &trans
+&trans  &trans      &kp LA(TAB)  &kp LEFT_ALT  &trans      &trans          &trans  &trans                            &trans
             >;
         };
 
