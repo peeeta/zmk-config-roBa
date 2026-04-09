@@ -65,7 +65,7 @@
 &kp LCTRL         &kp LEFT_WIN  &kp TAB  &kp LEFT_ALT  &lt_to_layer_0 3 SPACE  &lt_to_layer_0 1 SPACE         &lt_to_layer_0 7 C_MENU  &lt_to_layer_0 2 ENTER                             &kp RIGHT_SHIFT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         nums_shift {
@@ -104,6 +104,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                  &trans
             >;
+
+            sensor-bindings = <&scroll_encoder>;
         };
 
         SCROLL {
@@ -113,6 +115,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
+
+            sensor-bindings = <&scroll_encoder>;
         };
 
         bluetooth {
