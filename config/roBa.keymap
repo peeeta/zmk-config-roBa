@@ -28,6 +28,12 @@
 / {
     combos { compatible = "zmk,combos"; };
 
+    scroll_encoder: scroll_encoder {
+        compatible = "zmk,behavior-sensor-rotate";
+        #sensor-binding-cells = <0>;
+        bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+    };
+
     macros {
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
@@ -59,7 +65,7 @@
 &kp LCTRL         &kp LEFT_WIN  &kp TAB  &lt_to_layer_0 5 LEFT_ALT  &lt_to_layer_0 3 SPACE  &lt_to_layer_0 1 SPACE         &lt_to_layer_0 9 C_MENU  &lt_to_layer_0 2 ENTER                             &kp RIGHT_SHIFT
             >;
 
-            sensor-bindings = <&inc_dec_msc SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         nums_shift {
