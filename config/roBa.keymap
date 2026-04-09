@@ -59,10 +59,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E    &kp R                      &kp T                                                                           &kp Y                   &kp U  &lt 9 I    &kp O    &kp P
-&kp A             &kp S         &kp D    &kp F                      &kp G                   &lt_to_layer_0 6 LEFT_WIN      &kp BACKSPACE            &kp H                   &kp J  &kp K      &kp L    &kp SEMICOLON
-&mt LEFT_SHIFT Z  &kp X         &kp C    &kp V                      &kp B                   &kp GRAVE                      &kp ENTER                &kp N                   &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp TAB  &lt_to_layer_0 7 LEFT_ALT  &lt_to_layer_0 3 SPACE  &lt_to_layer_0 1 SPACE         &lt_to_layer_0 9 C_MENU  &lt_to_layer_0 2 ENTER                             &kp RIGHT_SHIFT
+&kp Q             &kp W         &kp E    &kp R         &kp T                                                                           &kp Y                   &kp U  &kp I      &kp O    &kp P
+&kp A             &kp S         &kp D    &kp F         &kp G                   &lt_to_layer_0 6 LEFT_WIN      &kp BACKSPACE            &kp H                   &kp J  &kp K      &kp L    &kp SEMICOLON
+&mt LEFT_SHIFT Z  &kp X         &kp C    &kp V         &kp B                   &kp GRAVE                      &kp ENTER                &kp N                   &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp TAB  &kp LEFT_ALT  &lt_to_layer_0 3 SPACE  &lt_to_layer_0 1 SPACE         &lt_to_layer_0 7 C_MENU  &lt_to_layer_0 2 ENTER                             &kp RIGHT_SHIFT
             >;
 
             sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
@@ -124,21 +124,12 @@
             >;
         };
 
-        Alt {
+        Alt_func {
             bindings = <
-&trans  &kp LA(N7)  &kp LA(N8)   &kp LA(N9)    &trans                              &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&trans  &kp LA(N4)  &kp LA(N5)   &kp LA(N6)    &trans      &trans          &trans  &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&trans  &kp LA(N1)  &kp LA(N2)   &kp LA(N3)    &kp LA(N0)  &kp ESCAPE      &trans  &kp F11  &kp F12  &trans  &trans  &trans
-&trans  &trans      &kp LA(TAB)  &kp LEFT_ALT  &trans      &trans          &trans  &trans                            &trans
-            >;
-        };
-
-        menu_layer {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                       &trans  &trans  &trans  &trans  &kp PRINTSCREEN
-&trans  &trans  &trans  &trans  &trans  &trans      &kp DEL  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans   &trans                          &kp RG(L)
+&trans  &kp LA(N7)  &kp LA(N8)  &kp LA(N9)    &trans                              &kp F1  &kp F2   &kp F3   &kp F4   &kp PRINTSCREEN
+&trans  &kp LA(N4)  &kp LA(N5)  &kp LA(N6)    &trans  &trans          &kp DELETE  &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&trans  &kp LA(N1)  &kp LA(N2)  &kp LA(N3)    &trans  &kp ESCAPE      &trans      &kp F9  &kp F10  &kp F11  &kp F12  &trans
+&trans  &trans      &kp LA(N0)  &kp LEFT_ALT  &trans  &trans          &trans      &trans                             &kp LG(L)
             >;
         };
 
