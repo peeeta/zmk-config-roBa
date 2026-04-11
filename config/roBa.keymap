@@ -75,6 +75,15 @@
             tapping-term-ms = <200>;
         };
 
+        mo_mb1: mo_mb1 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_MB1";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            bindings = <&mo>, <&mkp>;
+        };
+
         encoder_msc_down_up: encoder_msc_down_up {
             compatible = "zmk,behavior-sensor-rotate";
             label = "ENCODER_MSC_DOWN_UP";
@@ -130,7 +139,7 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &mkp MB3  &mkp MB1  &mkp MB2
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &mkp MB3  &mo_mb1 5 MB1  &mkp MB2
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB4  &mkp MB1  &mkp MB2  &mkp MB1  &mkp MB3
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                  &trans
