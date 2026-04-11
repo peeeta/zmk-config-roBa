@@ -45,16 +45,16 @@ layers:
   - {t: '&to_layer_0 ENTER', h: arrow}
   - RIGHT SHIFT
   nums_shift:
-  - Sft+!
-  - Sft+"
-  - Sft+#
-  - Sft+$
-  - Sft+%
-  - Sft+&
-  - Sft+'
-  - Sft+(
-  - Sft+)
-  - Sft+0
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - ^
+  - '&'
+  - _
+  - '-'
+  - Sft+INT1
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -137,36 +137,36 @@ layers:
   - '7'
   - '8'
   - '9'
-  - +
-  - '['
+  - ':'
+  - '"'
   - ']'
-  - Sft+=
+  - \
   - '-'
-  - Sft+`
+  - _
   - /
   - '4'
   - '5'
   - '6'
   - '-'
   - {t: ▽, type: trans}
-  - \
-  - Sft+{
-  - Sft+}
-  - Sft+~
-  - ^
-  - Sft+`
+  - {t: ▽, type: trans}
+  - INT3
+  - '*'
+  - (
+  - +
+  - '='
   - {t: ▽, type: trans}
   - '1'
   - '2'
   - '3'
-  - '*'
+  - '"'
   - RET
-  - '@'
-  - Sft+(
-  - Sft+)
-  - Sft+_
-  - Sft+|
   - {t: ▽, type: trans}
+  - '['
+  - '}'
+  - '|'
+  - Sft+INT1
+  - Sft+INT3
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '0'
@@ -185,7 +185,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&mkp MB3'
-  - '&mkp MB1'
+  - {t: '&mkp MB1', h: SCROLL}
   - '&mkp MB2'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -228,6 +228,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&mkp MB3'
+  - {t: '&mkp MB1', type: held}
+  - '&mkp MB2'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -235,6 +238,11 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&mkp MB4'
+  - '&mkp MB1'
+  - '&mkp MB2'
+  - '&mkp MB1'
+  - '&mkp MB3'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -242,15 +250,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mkp MB5'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -284,7 +284,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: mac_def, h: toggle}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -389,6 +389,50 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  mac_def:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Ctl+SPACE
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - LEFT WIN
+  - LCTRL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
