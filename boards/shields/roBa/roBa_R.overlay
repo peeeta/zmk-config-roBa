@@ -24,7 +24,7 @@
     max-factor = <3000>;
     speed-threshold = <800>;
     speed-max = <4000>;
-    acceleration-exponent = <2>;
+    acceleration-exponent = <1>;
 };
 
 &zip_temp_layer {
