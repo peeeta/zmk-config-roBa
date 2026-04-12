@@ -1,6 +1,7 @@
 #include "roBa.dtsi"
 #include <input/processors.dtsi>
 #include <behaviors/input_gestures_accel.dtsi>
+#include <dt-bindings/zmk/input_transform.h>
 
 &default_transform {
     col-offset = <6>;
@@ -31,7 +32,7 @@
         status = "okay";
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&pointer_accel>;
+        input-processors = <&pointer_accel &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
     };
 };
 
