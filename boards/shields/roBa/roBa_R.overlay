@@ -1,4 +1,6 @@
 #include "roBa.dtsi"
+#include <input/processors.dtsi>
+#include <behaviors/input_gestures_accel.dtsi>
 
 &default_transform {
     col-offset = <6>;
@@ -14,11 +16,22 @@
             ;
 };
 
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    track-remainders;
+    min-factor = <1000>;
+    max-factor = <3000>;
+    speed-threshold = <800>;
+    speed-max = <4000>;
+    acceleration-exponent = <2>;
+};
+
 / {
     trackball_listener {
         status = "okay";
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&pointer_accel>;
     };
 };
 
