@@ -4,8 +4,8 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: kumamuk-git
       url-base: https://github.com/kumamuk-git
-    - name: oleksandrmaslov
-      url-base: https://github.com/oleksandrmaslov
+    # - name: oleksandrmaslov
+    #   url-base: https://github.com/oleksandrmaslov
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -14,8 +14,8 @@ manifest:
     - name: zmk-pmw3610-driver
       remote: kumamuk-git
       revision: main
-    - name: zmk-pointing-acceleration
-      remote: oleksandrmaslov
-      revision: main
+    # - name: zmk-pointing-acceleration
+    #   remote: oleksandrmaslov
+    #   revision: main
   self:
     path: config
