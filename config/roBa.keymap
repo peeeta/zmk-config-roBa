@@ -117,7 +117,7 @@
 
         arrow {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                              &trans  &kp HOME         &kp UP    &kp END            &kp RA(PRINTSCREEN)
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5                              &kp F6  &kp HOME         &kp UP    &kp END            &kp RA(PRINTSCREEN)
 &trans  &trans  &trans  &trans  &trans  &trans      &kp DELETE      &trans  &kp LEFT         &kp DOWN  &kp RIGHT          &trans
 &trans  &trans  &trans  &trans  &trans  &kp ESCAPE  &trans          &trans  &kp LC(PAGE_UP)  &trans    &kp RC(PAGE_DOWN)  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans          &trans                                                &trans
