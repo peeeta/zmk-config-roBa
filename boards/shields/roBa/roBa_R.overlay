@@ -45,11 +45,13 @@
 
 / {
     trackball_listener {
+    status = "okay";
     compatible = "zmk,input-listener";
     device = <&trackball>;
     
     // <layer_index timeout_ms>
-    input-processors = <&zip_temp_layer_threshold AML 30000>;
+    // input-processors = <&zip_temp_layer_threshold AML 30000>;
+    input-processors = <&zip_temp_layer_threshold AML 30000 &pointer_accel &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
     };
 };
 
