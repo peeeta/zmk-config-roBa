@@ -6,6 +6,9 @@
 // #include "keys_jp.h"
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 80
+
+#define AML 4  // Your AML layer index / AMLレイヤーのインデックス
+
 #define JP_QUOTE        AMPERSAND         // '  (LS(N7) → JP Shift+7 = ')
 #define JP_DOUBLE_QUOTE AT_SIGN           // "  (LS(N2) → JP Shift+2 = ")
 #define JP_AMPERSAND    CARET             // &  (LS(N6) → JP Shift+6 = &)
@@ -52,6 +55,28 @@
 };
 
 / {
+    zip_temp_layer_threshold: zip_temp_layer_threshold {
+        compatible = "zmk,input-processor-temp-layer-threshold";
+        #input-processor-cells = <2>;
+        
+        // Cumulative movement required before activation
+        // AML発動に必要な累積移動量
+        threshold = <15>;
+        
+        // Key positions that won't deactivate the layer
+        // 以下で指定したキー以外を押すとAML解除
+        excluded-positions = <7 8 9 17 18 19 20 21>;
+        
+        // Don't activate if key was pressed within this time
+        // キー入力から300ms間はAMLを発動しない
+        require-prior-idle-ms = <300>;
+        
+        // Reset accumulated movement after this timeout
+        // 蓄積された移動量をリセットするまでの時間
+        reset-timeout-ms = <200>;
+    };
+
+
     combos { compatible = "zmk,combos"; };
 
     macros {

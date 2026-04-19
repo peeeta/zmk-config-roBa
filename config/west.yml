@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/kumamuk-git
     - name: oleksandrmaslov
       url-base: https://github.com/oleksandrmaslov
+    - name: yamaryu211
+      url-base: https://github.com/yamaryu211
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -16,6 +18,9 @@ manifest:
       revision: main
     - name: zmk-pointing-acceleration
       remote: oleksandrmaslov
+      revision: main
+    - name: zmk-input-processor-temp-layer-threshold
+      remote: yamaryu211
       revision: main
   self:
     path: config
