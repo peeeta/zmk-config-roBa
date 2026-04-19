@@ -102,10 +102,26 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0_delay";
             bindings = <&mo>, <&to_layer_0>;
-            flavor = "tap-preferred";
+            flavor = "balanced";
 
             #binding-cells = <2>;
-            tapping-term-ms = <700>;
+            tapping-term-ms = <900>;
+            quick-tap-ms = <900>;
+            require-prior-idle-ms = <120>;
+            hold-trigger-key-positions = <>;
+        };
+
+        lt_kp_delay: lt_kp_delay {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_KP_DELAY";
+            bindings = <&mo>, <&kp>;
+            flavor = "balanced";
+
+            #binding-cells = <2>;
+            tapping-term-ms = <900>;
+            quick-tap-ms = <900>;
+            require-prior-idle-ms = <120>;
+            hold-trigger-key-positions = <>;
         };
 
         mo_mb1_delay: mo_mb1_delay {
@@ -141,7 +157,7 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E    &kp R                    &kp T                                                                                     &kp Y  &kp U  &kp I      &lt_to_layer_0_delay 5 O    &lt_to_layer_0_delay 5 P
+&kp Q             &kp W         &kp E    &kp R                    &kp T                                                                                     &kp Y  &kp U  &kp I      &lt_kp_delay 5 O    &lt_kp_delay 5 P
 &kp A             &kp S         &kp D    &kp F                    &kp G                         &lt_to_layer_0 6 LEFT_WIN    &kp BACKSPACE                  &kp H  &kp J  &kp K      &kp L    &kp SEMICOLON
 &mt LEFT_SHIFT Z  &kp X         &kp C    &kp V                    &kp B                         &kp GRAVE                    &kp ENTER                      &kp N  &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
 &kp LCTRL         &kp LEFT_WIN  &kp TAB  &mt LEFT_ALT LANGUAGE_2  &lt_to_layer_0 3 SPACE        &lt_to_layer_0 1 LANGUAGE_1  &lt_to_layer_0 7 BACKSPACE     &lt_to_layer_0 2 ENTER             &kp LS(CAPS)
