@@ -1,6 +1,6 @@
 #include "roBa.dtsi"
 #include <input/processors.dtsi>
-// #include <behaviors/input_gestures_accel.dtsi>
+#include <behaviors/input_gestures_accel.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 
 &default_transform {

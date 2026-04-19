@@ -73,6 +73,15 @@
             tapping-term-ms = <200>;
         };
 
+        mo_mb1_delay: mo_mb1_delay {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_MB1_DELAY";
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            flavor = "balanced";
+            bindings = <&mo>, <&mkp>;
+        };
+
         mo_mb1: mo_mb1 {
             compatible = "zmk,behavior-hold-tap";
             label = "MO_MB1";
@@ -97,10 +106,10 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E    &kp R                    &kp T                                                                                     &kp Y  &kp U  &kp I      &lt_to_layer_0 5 O    &lt_to_layer_0 5 P
+&kp Q             &kp W         &kp E    &kp R                    &kp T                                                                                     &kp Y  &kp U  &kp I      &mo_mb1_delay 5 O    &mo_mb1_delay 5 P
 &kp A             &kp S         &kp D    &kp F                    &kp G                         &lt_to_layer_0 6 LEFT_WIN    &kp BACKSPACE                  &kp H  &kp J  &kp K      &kp L    &kp SEMICOLON
-&mt LEFT_SHIFT Z  &kp X         &kp C    &kp V                    &kp B                         &kp GRAVE                    &kp ENTER                      &kp N  &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp TAB  &mt LEFT_ALT LANGUAGE_1  &lt_to_layer_0 3 LANGUAGE_2   &lt_to_layer_0 1 SPACE  &lt_to_layer_0 7 BACKSPACE     &lt_to_layer_0 2 ENTER             &kp RIGHT_SHIFT
+&mt LEFT_SHIFT Z  &kp X         &kp C    &kp V                    &kp B                         &kp GRAVE                    &kp ENTER                      &kp N  &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp TAB  &mt LEFT_ALT LANGUAGE_1  &lt_to_layer_0 3 SPACE        &lt_to_layer_0 1 LANGUAGE_2  &lt_to_layer_0 7 BACKSPACE     &lt_to_layer_0 2 ENTER             &kp LS(CAPS)
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
