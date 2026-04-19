@@ -75,11 +75,11 @@
 
         lt_to_layer_0_delay: lt_to_layer_0_delay {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
+            label = "LAYER_TAP_TO_0_delay";
             bindings = <&mo>, <&to_layer_0>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <500>;
+            tapping-term-ms = <700>;
         };
 
         mo_mb1_delay: mo_mb1_delay {
