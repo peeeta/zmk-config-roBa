@@ -102,6 +102,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0_delay";
             bindings = <&mo>, <&to_layer_0>;
+            flavor = "tap-preferred";
 
             #binding-cells = <2>;
             tapping-term-ms = <700>;
