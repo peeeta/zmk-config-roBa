@@ -7,6 +7,8 @@
     col-offset = <6>;
 };
 
+#define AML 4  // Your AML layer index / AMLレイヤーのインデックス
+
 &kscan0 {
         col-gpios
             = <&xiao_d 10 GPIO_ACTIVE_HIGH>
