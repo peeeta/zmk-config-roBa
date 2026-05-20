@@ -65,7 +65,7 @@
         
         // Key positions that won't deactivate the layer
         // 以下で指定したキー以外を押すとAML解除
-        excluded-positions = <7 8 9 17 18 19 20 21 34> ;
+        excluded-positions = <7 8 9 17 18 19 20 21 22 34> ;
         
         // Don't activate if key was pressed within this time
         // キー入力から300ms間はAMLを発動しない
