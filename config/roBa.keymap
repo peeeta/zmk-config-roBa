@@ -60,20 +60,20 @@
         #input-processor-cells = <2>;
         
         // Cumulative movement required before activation
-        // AML発動に必要な累積移動量
-        threshold = <15>;
-        
+        // AML発動に必要な累積移動量（大きくするほど誤作動しにくい）
+        threshold = <25>;
+
         // Key positions that won't deactivate the layer
         // 以下で指定したキー以外を押すとAML解除
         excluded-positions = <7 8 9 17 18 19 20 21 22 34> ;
-        
+
         // Don't activate if key was pressed within this time
         // キー入力から300ms間はAMLを発動しない
         require-prior-idle-ms = <300>;
-        
+
         // Reset accumulated movement after this timeout
-        // 蓄積された移動量をリセットするまでの時間
-        reset-timeout-ms = <200>;
+        // 蓄積された移動量をリセットするまでの時間（短くするとドリフト蓄積を防ぐ）
+        reset-timeout-ms = <100>;
     };
 
 
