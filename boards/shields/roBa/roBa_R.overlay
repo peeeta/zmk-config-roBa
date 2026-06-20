@@ -21,12 +21,12 @@
 
 &pointer_accel {
     input-type = <INPUT_EV_REL>;
-    track-remainders;
+    // track-remainders を削除: 高速移動後に端数が蓄積→次の動きが詰まる問題を防ぐ
     min-factor = <1000>;
     max-factor = <3000>;
     speed-threshold = <800>;
     speed-max = <4000>;
-    acceleration-exponent = <1>;  // 2(二乗)→1(線形)でカクツキを改善
+    acceleration-exponent = <1>;
 };
 
 // &zip_temp_layer {
