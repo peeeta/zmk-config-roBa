@@ -23,7 +23,7 @@
     input-type = <INPUT_EV_REL>;
     // track-remainders を削除: 高速移動後に端数が蓄積→次の動きが詰まる問題を防ぐ
     min-factor = <1000>;
-    max-factor = <3000>;
+    max-factor = <1000>;  // 加速オフ相当で切り分け。ずれが止まればaccelが原因→徐々に上げる
     speed-threshold = <800>;
     speed-max = <4000>;
     acceleration-exponent = <1>;
