@@ -8,7 +8,13 @@
       "WebSearch",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(gh run *)",
+      "PowerShell(gh run list --branch feature/F2RightHand --limit 5)",
+      "PowerShell(try { \\(Invoke-RestMethod \"https://api.github.com/repos/peeeta/zmk-config-roBa/actions/runs?branch=feature/F2RightHand&per_page=5\"\\).workflow_runs | Select-Object -First 5 display_title,status,conclusion,head_sha,html_url | Format-List } catch { \"ERR: $\\($_.Exception.Message\\)\" })",
+      "Bash(git checkout *)",
+      "Bash(find / -name \"outputs.h\" -path \"*zmk*\" 2>/dev/null; echo \"---local search---\"; find e:/repo/roBa_switching_winmac -name \"outputs.h\" 2>/dev/null)",
+      "Read(//e//**)"
     ]
   }
 }
