@@ -10,6 +10,12 @@
 #define AML 4  // Your AML layer index / AMLレイヤーのインデックス
 
 &kscan0 {
+        // チャタリング対策: リリース側のデバウンスを延長
+        // （デフォルトは press/release ともに 5ms）
+        debounce-press-ms = <5>;
+        debounce-release-ms = <20>;
+        debounce-scan-period-ms = <1>;
+
         col-gpios
             = <&xiao_d 10 GPIO_ACTIVE_HIGH>
             , <&xiao_d 9 GPIO_ACTIVE_HIGH>
