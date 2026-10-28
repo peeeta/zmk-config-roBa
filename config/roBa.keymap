@@ -10,6 +10,25 @@
 
 // #define AML 4  // Your AML layer index / AMLレイヤーのインデックス
 
+// Layer indices / レイヤー番号
+// mac_default_layer は共有レイヤー(arrow, Num, bluetooth)より下に置く必要がある
+// MAC 版レイヤー(L_MAC_*)は conditional_layers で「MAC + 元レイヤー」のとき自動で有効になる
+#define L_WIN             0
+#define L_MAC             1
+#define L_NUMS_SHIFT      2
+#define L_ARROW_FN        3
+#define L_NUM             4
+#define L_MOUSE           5   // AML: roBa_R.overlay の AML と揃えること
+#define L_SCROLL          6
+#define L_BT              7
+#define L_ALT_FUNC        8
+#define L_ARROW           9
+#define L_MAC_NUMS_SHIFT 10
+#define L_MAC_MOUSE      11
+#define L_MAC_SCROLL     12
+#define L_MAC_ALT_FUNC   13
+#define L_MAC_ARROW      14
+
 #define JP_QUOTE        AMPERSAND         // '  (LS(N7) → JP Shift+7 = ')
 #define JP_DOUBLE_QUOTE AT_SIGN           // "  (LS(N2) → JP Shift+2 = ")
 #define JP_AMPERSAND    CARET             // &  (LS(N6) → JP Shift+6 = &)
@@ -40,7 +59,7 @@
 };
 
 &trackball {
-    scroll-layers = <5>;
+    scroll-layers = <L_SCROLL>;
 
     // arrows {
     //     layers = <3>;
@@ -87,6 +106,42 @@
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
         };
+
+        to_layer_mac: to_layer_mac {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&to L_MAC &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+            label = "TO_LAYER_MAC";
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        mac_nums_shift {
+            if-layers = <L_MAC L_NUMS_SHIFT>;
+            then-layer = <L_MAC_NUMS_SHIFT>;
+        };
+
+        mac_mouse {
+            if-layers = <L_MAC L_MOUSE>;
+            then-layer = <L_MAC_MOUSE>;
+        };
+
+        mac_scroll {
+            if-layers = <L_MAC L_SCROLL>;
+            then-layer = <L_MAC_SCROLL>;
+        };
+
+        mac_alt_func {
+            if-layers = <L_MAC L_ALT_FUNC>;
+            then-layer = <L_MAC_ALT_FUNC>;
+        };
+
+        mac_arrow {
+            if-layers = <L_MAC L_ARROW>;
+            then-layer = <L_MAC_ARROW>;
+        };
     };
 
     behaviors {
@@ -94,6 +149,15 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
             bindings = <&mo>, <&to_layer_0>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        lt_to_layer_mac: lt_to_layer_mac {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_TO_MAC";
+            bindings = <&mo>, <&to_layer_mac>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -158,10 +222,23 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E    &kp R                    &kp T                                                                                     &kp Y  &kp U  &kp I      &lt_kp_delay 5 O    &lt_kp_delay 5 P
-&kp A             &kp S         &kp D    &kp F                    &kp G                         &lt_to_layer_0 6 LEFT_WIN    &kp BACKSPACE                  &kp H  &kp J  &kp K      &kp L    &kp SEMICOLON
-&mt LEFT_SHIFT Z  &kp X         &kp C    &kp V                    &kp B                         &kp TAB                      &kp ENTER                      &kp N  &kp M  &kp COMMA  &kp DOT  &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp TAB  &mt LEFT_ALT LANGUAGE_2  &lt_to_layer_0 3 SPACE        &lt_to_layer_0 1 LANGUAGE_1  &lt_to_layer_0 7 BACKSPACE     &lt_to_layer_0 2 ENTER             &kp LS(CAPS)
+&kp Q             &kp W         &kp E    &kp R                    &kp T                                                                                                        &kp Y  &kp U  &kp I      &lt_kp_delay L_SCROLL O  &lt_kp_delay L_SCROLL P
+&kp A             &kp S         &kp D    &kp F                    &kp G                               &lt_to_layer_0 L_BT LEFT_WIN               &kp BACKSPACE                     &kp H  &kp J  &kp K      &kp L                    &kp SEMICOLON
+&mt LEFT_SHIFT Z  &kp X         &kp C    &kp V                    &kp B                               &kp TAB                                    &kp ENTER                         &kp N  &kp M  &kp COMMA  &kp DOT                  &mt RIGHT_SHIFT SLASH
+&kp LCTRL         &kp LEFT_WIN  &kp TAB  &mt LEFT_ALT LANGUAGE_2  &lt_to_layer_0 L_NUM SPACE          &lt_to_layer_0 L_NUMS_SHIFT LANGUAGE_1     &lt_to_layer_0 L_ALT_FUNC BACKSPACE    &lt_to_layer_0 L_ARROW_FN ENTER                                       &kp LS(CAPS)
+            >;
+
+            sensor-bindings = <&encoder_msc_down_up>;
+        };
+
+        // Mac 用ベース: Ctrl 位置に Cmd、Win 位置に Ctrl、Win キータップ → Cmd+Space (Spotlight)
+        // 親指キーのタップ時は &to L_MAC で Mac モードに戻る
+        mac_default_layer {
+            bindings = <
+&kp Q             &kp W         &kp E    &kp R                    &kp T                                                                                                        &kp Y  &kp U  &kp I      &lt_kp_delay L_SCROLL O  &lt_kp_delay L_SCROLL P
+&kp A             &kp S         &kp D    &kp F                    &kp G                               &lt_to_layer_mac L_BT LG(SPACE)            &kp BACKSPACE                     &kp H  &kp J  &kp K      &kp L                    &kp SEMICOLON
+&mt LEFT_SHIFT Z  &kp X         &kp C    &kp V                    &kp B                               &kp TAB                                    &kp ENTER                         &kp N  &kp M  &kp COMMA  &kp DOT                  &mt RIGHT_SHIFT SLASH
+&kp LEFT_GUI      &kp LCTRL     &kp TAB  &mt LEFT_ALT LANGUAGE_2  &lt_to_layer_mac L_NUM SPACE        &lt_to_layer_mac L_NUMS_SHIFT LANGUAGE_1   &lt_to_layer_mac L_ALT_FUNC BACKSPACE  &lt_to_layer_mac L_ARROW_FN ENTER                                     &kp LS(CAPS)
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -198,10 +275,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &mkp MB3  &mo_mb1 5 MB1  &mo_mb1 5 MB2
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &mkp MB1  &mkp MB2  &mkp MB1       &mkp MB3
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &trans    &trans    &trans         &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                       &trans
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &mkp MB3  &mo_mb1 L_SCROLL MB1  &mo_mb1 L_SCROLL MB2
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &mkp MB1  &mkp MB2  &mkp MB1              &mkp MB3
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &trans    &trans    &trans                &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                              &trans
             >;
 
             sensor-bindings = <&encoder_msc_down_up>;
@@ -218,11 +295,12 @@
             sensor-bindings = <&encoder_msc_down_up>;
         };
 
+        // W 位置: Windows モード / M 位置: Mac モード
         bluetooth {
             bindings = <
-&out OUT_TOG  &trans         &trans        &trans        &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans        &trans        &trans        &trans        &trans  &trans      &trans       &trans        &trans        &tog 9        &trans        &trans
-&trans        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &trans        &trans        &trans        &bt BT_CLR
+&out OUT_TOG  &to L_WIN     &trans        &trans        &trans                           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&trans        &trans        &trans        &trans        &trans  &trans      &trans       &trans        &trans        &trans        &trans        &trans
+&trans        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans      &bootloader  &trans        &to L_MAC     &trans        &trans        &bt BT_CLR
 &trans        &trans        &trans        &trans        &trans  &trans      &trans       &trans                                                  &bt BT_CLR_ALL
             >;
         };
@@ -247,13 +325,60 @@
             sensor-bindings = <&inc_dec_kp LC(PAGE_UP) LC(PAGE_DOWN)>;
         };
 
-        mac_def {
+        // ---- 以下 Mac 版 (conditional_layers により L_MAC + 元レイヤーで自動的に有効) ----
+
+        mac_nums_shift {
             bindings = <
-&trans        &trans     &trans  &trans  &trans                              &trans  &trans  &trans  &trans  &trans
-&trans        &trans     &trans  &trans  &trans  &trans          &trans      &trans  &trans  &trans  &trans  &trans
-&trans        &trans     &trans  &trans  &trans  &kp LC(SPACE)   &trans      &trans  &trans  &trans  &trans  &trans
-&kp LEFT_WIN  &kp LCTRL  &trans  &trans  &trans  &trans          &trans      &trans                          &trans
+&kp EXCLAMATION  &kp JP_DOUBLE_QUOTE  &kp HASH  &kp DOLLAR  &kp PERCENT                         &kp JP_AMPERSAND  &kp JP_QUOTE  &kp JP_EQUAL  &kp MINUS  &kp JP_UNDERSCORE
+&trans           &trans               &trans    &trans      &trans       &trans      &trans      &trans            &trans        &trans        &trans     &trans
+&trans           &trans               &trans    &trans      &trans       &kp ESCAPE  &trans      &trans            &trans        &trans        &trans     &trans
+&trans           &trans               &trans    &trans      &trans       &trans      &trans      &trans                                                   &trans
             >;
+        };
+
+        mac_MOUSE {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &mkp MB3  &mo_mb1 L_SCROLL MB1  &mo_mb1 L_SCROLL MB2
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &mkp MB1  &mkp MB2  &mkp MB1              &mkp MB3
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &trans    &trans    &trans                &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                              &trans
+            >;
+
+            sensor-bindings = <&encoder_msc_down_up>;
+        };
+
+        mac_SCROLL {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                      &trans    &trans    &mkp MB3  &mkp MB1  &mkp MB2
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans    &mkp MB1  &mkp MB2  &mkp MB1  &mkp MB3
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &mkp MB5  &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                                  &trans
+            >;
+
+            sensor-bindings = <&encoder_msc_down_up>;
+        };
+
+        // Alt+数字 → Cmd+数字 / PrintScreen → Cmd+Shift+5 / Win+L → Ctrl+Cmd+Q (画面ロック)
+        mac_Alt_func {
+            bindings = <
+&kp ESCAPE  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)    &trans                              &kp F1  &kp F2   &kp F3   &kp F4   &kp LG(LS(N5))
+&trans      &kp LG(N4)  &kp LG(N5)  &kp LG(N6)    &trans  &trans      &kp DELETE      &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&trans      &kp LG(N1)  &kp LG(N2)  &kp LG(N3)    &trans  &kp ESCAPE  &trans          &kp F9  &kp F10  &kp F11  &kp F12  &trans
+&trans      &kp LG(N0)  &trans      &kp LEFT_ALT  &trans  &trans      &trans          &trans                              &kp LC(LG(Q))
+            >;
+        };
+
+        // Home/End → Cmd+←/→ (行頭/行末)
+        // Win+Shift+←/→ (ウィンドウを別ディスプレイへ) → Ctrl+Opt+Cmd+←/→ (Rectangle の前/次ディスプレイ)
+        mac_ARROW {
+            bindings = <
+&kp ESCAPE      &kp LC(LS(TAB))             &kp UP_ARROW    &kp LC(TAB)                  &trans                             &trans  &trans  &trans  &trans  &trans
+&kp LG(LEFT)    &kp LEFT_ARROW              &kp DOWN_ARROW  &kp RIGHT_ARROW              &kp LG(RIGHT)  &trans      &trans   &trans  &trans  &trans  &trans  &trans
+&kp LEFT_SHIFT  &kp LC(LA(LG(LEFT_ARROW)))  &trans          &kp LC(LA(LG(RIGHT_ARROW)))  &trans         &trans      &trans   &trans  &trans  &trans  &trans  &trans
+&trans          &trans                      &trans          &trans                       &trans         &trans      &trans   &trans                          &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB)>;
         };
     };
 };

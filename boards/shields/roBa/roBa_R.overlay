@@ -7,7 +7,7 @@
     col-offset = <6>;
 };
 
-#define AML 4  // Your AML layer index / AMLレイヤーのインデックス
+#define AML 5  // Your AML layer index / AMLレイヤーのインデックス (roBa.keymap の L_MOUSE)
 
 &kscan0 {
         // チャタリング対策: リリース側のデバウンスを延長
