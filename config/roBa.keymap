@@ -59,7 +59,8 @@
 };
 
 &trackball {
-    scroll-layers = <L_SCROLL>;
+    // ドライバは「最上位のアクティブレイヤー」で判定するため、Mac 版 (conditional_layers) も列挙する
+    scroll-layers = <L_SCROLL L_MAC_SCROLL>;
 
     // arrows {
     //     layers = <3>;
