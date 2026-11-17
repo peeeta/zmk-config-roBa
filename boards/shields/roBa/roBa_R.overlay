@@ -8,6 +8,7 @@
 };
 
 #define AML 5  // Your AML layer index / AMLレイヤーのインデックス (roBa.keymap の L_MOUSE)
+#define MAC_SCROLL 12  // roBa.keymap の L_MAC_SCROLL と揃えること
 
 &kscan0 {
         // チャタリング対策: リリース側のデバウンスを延長
@@ -58,6 +59,15 @@
     // <layer_index timeout_ms>
     // input-processors = <&zip_temp_layer_threshold AML 30000>;
     input-processors = <&zip_temp_layer_threshold AML 3000 &pointer_accel &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
+
+    // Mac モード (iPad 含む) のスクロールだけホイール量を 2 倍にする。
+    // iPadOS は 1 ノッチ (±1) の移動量がとても小さく、ゆっくり回すと反応しないように感じるため。
+    // process-next で上の通常処理 (レイヤー維持・Y 反転) もそのまま通す。
+    mac_scroll {
+        layers = <MAC_SCROLL>;
+        input-processors = <&zip_scroll_scaler 2 1>;
+        process-next;
+    };
     };
 };
 
